@@ -1,5 +1,16 @@
 .App {
   text-align: center;
+	min-height: 100vh;
+	background: url('/src/assets/images/sky.jpg') no-repeat;
+	display: flex;
+	flex-direction: column;
+	
+}
+
+.App-rain {
+	text-align: center;
+	min-height: 100vh;
+	background: url('/src/assets/images/rain.jpg') no-repeat;
 }
 
 .App-logo {
@@ -14,18 +25,13 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  
+	height: 100px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 15px;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {

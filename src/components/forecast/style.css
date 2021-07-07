@@ -1,0 +1,12 @@
+.Forecast-container {
+	width: 100%;
+	height: auto;
+	background: rgba(0, 0, 0,  .1);
+	display: flex;
+	margin: 10px;
+	border: solid 1px #000;
+	border-radius: 10px;
+	align-items: center;
+	justify-content: space-around;
+	box-sizing: border-box;
+}

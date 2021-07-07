@@ -1,0 +1,12 @@
+.WeekForecast-container {
+	width: 100%;
+	height: auto;
+}
+
+.Forecastlist-container {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
