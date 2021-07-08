@@ -4,6 +4,8 @@ import {
   GetForecastStateType,
   ForecastActionTypes,
 	WeekForecastActionType,
+	FAIL_REQUEST,
+	FailRequestType
 } from '../types/ForecastTypes';
 
 const initialStateGetForecast: GetForecastStateType = {
@@ -69,23 +71,31 @@ const initialStateGetForecast: GetForecastStateType = {
 			}
 		]	
 	},
+	error: ''
 };
 
 export const getForecastReducer = (
   state = initialStateGetForecast,
-  action:  ForecastActionTypes | WeekForecastActionType
+  action:  ForecastActionTypes | WeekForecastActionType | FailRequestType
 ): GetForecastStateType => {
   switch (action.type) {
     case GET_FORECAST:
       return {
         ...state,
+				error: null,
         forecasts: action.payload
       };
 		case GET_WEEK_FORECAST:
 			return {
 				...state,
+				error: null,
 				weekForecast: action.payload
 			};
+		case FAIL_REQUEST:
+			return {
+				...state,
+				error: action.payload
+			}
     default:
       return state;
   }

@@ -16,16 +16,16 @@ function Navigation() {
       <div>
         <nav>
           <ul className='Nav-container'>
-						<li>
-              <Link to="/weekforecast">Weather per next week</Link>
+						<li >
+              <Link  className="Navigation-link" to="/weekforecast">Next 5 days</Link>
             </li>
             <li>
-              <Link to="/forecast">Current Weather</Link>
+              <Link className="Navigation-link" to="/forecast">Current Weather</Link>
             </li>
           </ul>
         </nav>
         <Switch>
-          <Route path="/forecast">
+          <Route exact path="/forecast">
             <Forecast />
           </Route>
           <Route path="/weekforecast">

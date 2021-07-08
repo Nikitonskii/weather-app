@@ -1,26 +1,22 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import './style.css';
 import { useDispatch } from 'react-redux';
-import { getForecast, getWeekForecast} from '../../redux/effects/Forecasts';
+import { getForecast, getWeekForecast } from '../../redux/effects/Forecasts';
+import { debounce } from '../../utils';
 
-const debounce = (func: Function, wait: number) => {
-  let timeout: any;
-  return function(...args: any[]) {
-    //const context = this;
-		console.log('debounce works')
-    if (timeout) clearTimeout(timeout);
-    timeout = setTimeout(() => {
-			console.log('debounce works')
-      timeout = null;
-      func(...args);
-    }, wait);
-  };
-};
 
-const Input: React.FC = () => {
+const Input = () => {
 
 	const [place, setPlace] = useState('');
 	const dispatch = useDispatch();
+	
+	const changeHandler = (event: any) => {
+    setPlace(event.target.value);
+  };
+
+	const debouncedChangeHandler = useCallback(
+		debounce(changeHandler, 400)
+	,[]);
 
 	useEffect(() => {
 		dispatch(getForecast(place))
@@ -33,7 +29,7 @@ const Input: React.FC = () => {
       <input
 				id="place"
 			 	className="input"
-				onChange={e => setPlace(e.target.value)}
+				onChange={debouncedChangeHandler}
 				placeholder='Your city'
 			/>
     </div>

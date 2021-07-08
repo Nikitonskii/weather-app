@@ -1,5 +1,15 @@
 .Nav-container {
 	display: flex;
 	justify-content: space-around;
-	
+	list-style-type: none;
+}
+
+.Navigation-link {
+	text-decoration: none;
+	font-size: 25px;
+	font-weight: 600;
+	color: gold;
+	border: 1px solid gold;
+	padding: 5px;
+	border-radius: 10px;
 }

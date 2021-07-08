@@ -5,6 +5,7 @@ import { AppState } from '../../redux/store/index';
 import { WeekForecastItem } from '../../redux/interfaces/Forecast';
 import ForecastItem from '../forecastItem';
 import { getDay } from '../../utils';
+import { v4 as uuidv4 } from 'uuid';
 
 const WeekForecast = () => {
 
@@ -21,13 +22,13 @@ const WeekForecast = () => {
     }
  });
 
- console.log('forecast list from week',forecastsList) 	// <ForecastItem props={forecast} /> 
+ //console.log('forecast list from week',forecastsList) 	// <ForecastItem props={forecast} /> 
 
   return (
     <div className="WeekForecast-container">
-      <h2>There are predictions for whole week</h2>
+      <h2>Weather for 5 days</h2>
 			<div className='Forecastlist-container'>
-				{forecastsList.map((forecast: WeekForecastItem) =>  <ForecastItem props={forecast} /> )}
+				{forecastsList.map((forecast: WeekForecastItem) =>  <ForecastItem key={uuidv4()} props={forecast} /> )}
 			</div>
     </div>
   );
